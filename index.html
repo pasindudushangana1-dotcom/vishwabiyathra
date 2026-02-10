@@ -744,11 +744,13 @@ void renderFrame() {
         }
 
         // Login Logic - UPDATED CREDENTIALS
+        // Login Logic - UPDATED CREDENTIALS
         function checkLogin() {
-            if (usernameInput.value === "123" && passwordInput.value === "123") {
+            // Case insensitive check for username
+            if (usernameInput.value.toUpperCase() === "BCSS" && passwordInput.value === "123") {
                 startLoadingSequence();
             } else {
-                document.getElementById('errorMsg').style.display = 'block';
+                alert('ACCESS DENIED: Invalid Credentials');
                 usernameInput.value = '';
                 passwordInput.value = '';
                 usernameInput.focus();
