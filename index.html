@@ -475,22 +475,18 @@
         /* --- FINAL TEXT CONTAINER --- */
         #finalTextContainer {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -40%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
             z-index: 600;
             opacity: 0;
-            transition: all 1.5s ease-out;
+            transition: opacity 2s ease-out;
             pointer-events: none;
         }
 
         #finalTextContainer.visible {
             opacity: 1;
-            transform: translate(-50%, -50%);
         }
 
         #mainText {
@@ -506,7 +502,11 @@
             /* Green Glow */
             letter-spacing: 5px;
             white-space: nowrap;
-            margin-bottom: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
             animation: greenPulse 1s infinite alternate;
             /* Slower Pulse */
         }
@@ -515,21 +515,30 @@
             0% {
                 opacity: 1;
                 text-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
-                transform: scale(1);
+                transform: translate(-50%, -50%) scale(1);
             }
 
             100% {
                 opacity: 0.8;
                 text-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
-                transform: scale(1.02);
+                transform: translate(-50%, -50%) scale(1.02);
             }
         }
 
         .event-details {
+            position: absolute;
+            bottom: 25%;
+            /* Raised up */
+            /* Fixed at bottom */
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             justify-content: center;
             gap: 60px;
-            font-family: 'Rajdhani', sans-serif;
+            flex-wrap: nowrap;
+            /* Ensure single line */
+            font-family: 'Press Start 2P', cursive;
+            /* Minecraft Font */
             color: #00ff00;
             /* Green Text */
             background: rgba(0, 20, 0, 0.6);
@@ -545,13 +554,18 @@
 
         .detail-item {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            /* Horizontal alignment */
             align-items: center;
+            gap: 15px;
+            /* Space between Label and Value */
             position: relative;
             padding: 0 20px;
             opacity: 0;
             transform: translateY(20px);
             transition: all 1s ease-out;
+            white-space: nowrap;
+            /* Prevent text wrap */
         }
 
         .detail-item:not(:last-child)::after {
@@ -584,15 +598,18 @@
         }
 
         .detail-label {
-            font-size: 1.1rem;
+            font-size: 0.8rem;
+            /* Smaller for pixel font */
             color: rgba(255, 255, 255, 0.7);
             letter-spacing: 3px;
             font-weight: 500;
-            margin-bottom: 5px;
+            margin-bottom: 0;
+            /* No margin needed for row layout */
         }
 
         .detail-value {
-            font-size: 2.2rem;
+            font-size: 1.2rem;
+            /* Adjusted for blocky width */
             font-weight: 700;
             color: #fff;
             text-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
