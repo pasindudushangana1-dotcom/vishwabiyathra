@@ -494,31 +494,33 @@
         }
 
         #mainText {
-            font-family: "OCR A Extended", monospace;
-            font-size: 4rem;
+            font-family: 'Press Start 2P', cursive;
+            /* Minecraft Style */
+            font-size: 3rem;
+            /* Blocky Font */
             color: #fff;
-            /* White like Details */
+            /* White */
             text-shadow:
-                0 0 15px rgba(0, 255, 255, 0.8),
-                0 0 30px rgba(0, 255, 255, 0.6);
-            /* Cyan Glow */
+                0 0 15px rgba(0, 255, 0, 0.8),
+                0 0 30px rgba(0, 255, 0, 0.6);
+            /* Green Glow */
             letter-spacing: 5px;
             white-space: nowrap;
             margin-bottom: 50px;
-            animation: cyanPulse 1s infinite alternate;
+            animation: greenPulse 1s infinite alternate;
             /* Slower Pulse */
         }
 
-        @keyframes cyanPulse {
+        @keyframes greenPulse {
             0% {
                 opacity: 1;
-                text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+                text-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
                 transform: scale(1);
             }
 
             100% {
                 opacity: 0.8;
-                text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+                text-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
                 transform: scale(1.02);
             }
         }
@@ -528,10 +530,14 @@
             justify-content: center;
             gap: 60px;
             font-family: 'Rajdhani', sans-serif;
-            color: #00ffff;
-            background: rgba(0, 20, 20, 0.6);
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+            color: #00ff00;
+            /* Green Text */
+            background: rgba(0, 20, 0, 0.6);
+            /* Dark Green Bg */
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            /* Green Border */
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.1);
+            /* Green Shadow */
             backdrop-filter: blur(10px);
             padding: 30px 60px;
             border-radius: 15px;
@@ -555,7 +561,8 @@
             top: 20%;
             height: 60%;
             width: 1px;
-            background: rgba(0, 255, 255, 0.3);
+            background: rgba(0, 255, 0, 0.3);
+            /* Green Separator */
         }
 
         .event-details.visible .detail-item:nth-child(1) {
@@ -588,7 +595,8 @@
             font-size: 2.2rem;
             font-weight: 700;
             color: #fff;
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            text-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+            /* Green Glow */
         }
     </style>
 </head>
@@ -727,7 +735,7 @@
 
         function checkLogin() {
             // Case insensitive check for username
-            if (usernameInput.value.toUpperCase() === "BCSS" && passwordInput.value === "123") {
+            if (usernameInput.value.toUpperCase() === "BCSS" && passwordInput.value === "123456789") {
                 startLoadingSequence();
             } else {
                 document.getElementById('errorMsg').style.display = 'block';
