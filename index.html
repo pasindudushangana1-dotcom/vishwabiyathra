@@ -52,17 +52,14 @@
             width: 70%;
             max-width: 900px;
             height: 70vh;
-            /* Glassmorphism Configuration */
             background: rgba(0, 15, 0, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-
             border: 1px solid rgba(0, 255, 0, 0.3);
             border-radius: 4px;
             box-shadow:
                 0 0 30px rgba(0, 255, 0, 0.1),
                 inset 0 0 50px rgba(0, 20, 0, 0.5);
-
             padding: 40px;
             font-family: 'VT323', monospace;
             color: #0f0;
@@ -71,8 +68,6 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-
-            /* Enhanced glowing border animation */
             animation: borderPulse 4s infinite alternate;
         }
 
@@ -88,19 +83,14 @@
             }
         }
 
-        /* Cleaner Scanline */
         #terminalScreen::before {
             content: "";
             position: absolute;
             top: 0;
+            height: 100%;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom,
-                    rgba(255, 255, 255, 0),
-                    rgba(255, 255, 255, 0) 50%,
-                    rgba(0, 0, 0, 0.2) 50%,
-                    rgba(0, 0, 0, 0.2));
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
             background-size: 100% 4px;
             pointer-events: none;
             z-index: 10;
@@ -115,7 +105,6 @@
             opacity: 0.8;
         }
 
-        /* --- CENTERED & LARGER TAGLINE --- */
         .tagline-container {
             display: flex;
             justify-content: center;
@@ -128,33 +117,22 @@
 
         .tagline-text {
             color: #00ffff;
-            /* Cyber Blue */
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             font-size: 2.5rem;
-            /* Much larger */
             text-transform: uppercase;
             text-align: center;
             letter-spacing: 2px;
-
-            /* Strong Neon Glow */
-            text-shadow:
-                0 0 10px rgba(0, 255, 255, 0.8),
-                0 0 20px rgba(0, 255, 255, 0.5),
-                0 0 40px rgba(0, 255, 255, 0.3);
-
-            white-space: pre-wrap;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
             opacity: 0;
-            /* Fade in handled by JS typing mostly, or CSS below */
             transition: opacity 0.5s ease;
         }
 
-        /* --- PRO LOGIN STYLING --- */
+        /* LOGIN STYLING */
         .login-container {
             display: none;
             flex-direction: column;
             align-items: center;
-            /* Center inputs */
             justify-content: center;
             gap: 20px;
             padding: 30px;
@@ -163,10 +141,8 @@
             margin-top: 10px;
             position: relative;
             z-index: 50;
-            /* Ensure interactivity */
         }
 
-        /* "SECURITY CLEARANCE" LABEL */
         .login-container::before {
             content: "SECURITY CLEARANCE REQUIRED";
             position: absolute;
@@ -211,7 +187,6 @@
             text-transform: uppercase;
         }
 
-        /* ACCESS BUTTON */
         .access-btn {
             background: rgba(0, 255, 0, 0.1);
             border: 1px solid #0f0;
@@ -249,23 +224,21 @@
             margin-top: 10px;
             display: none;
             font-family: 'Rajdhani', sans-serif;
-            letter-spacing: 1px;
         }
 
-        /* --- LOADING BAR --- */
+        /* LOADING BAR (Enhanced) */
         .loader-container {
             display: none;
-            /* Hidden by default */
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            padding: 40px;
             width: 100%;
             height: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            background: rgba(0, 10, 0, 0.9);
+            background: rgba(0, 10, 0, 0.95);
             z-index: 200;
         }
 
@@ -274,27 +247,64 @@
             font-family: 'VT323', monospace;
             font-size: 1.5rem;
             letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-align: left;
+            width: 70%;
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
 
         .progress-bar {
-            width: 60%;
-            height: 20px;
-            border: 2px solid #0f0;
-            border-radius: 4px;
-            padding: 3px;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+            width: 70%;
+            height: 24px;
+            border: 1px solid #0f0;
+            background: rgba(0, 20, 0, 0.8);
+            padding: 2px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+            position: relative;
         }
 
         .progress-fill {
             width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, #0f0, #00ffff);
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            background: repeating-linear-gradient(90deg, #0f0 0px, #0f0 10px, transparent 10px, transparent 14px);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
             transition: width 0.1s linear;
         }
 
-        /* --- ZEUS CONTAINER (No change needed) --- */
+        .percent-display {
+            color: #fff;
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            text-align: right;
+            width: 70%;
+            margin-bottom: 20px;
+        }
+
+        .system-log-box {
+            width: 70%;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 2px solid #0f0;
+            padding: 10px;
+            font-family: 'VT323', monospace;
+            font-size: 0.9rem;
+            color: rgba(0, 255, 0, 0.8);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            line-height: 1.2;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .system-log-line {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* ZEUS SCREEN */
         .zeus-wrapper {
             display: none;
             flex-direction: column;
@@ -302,68 +312,265 @@
             justify-content: center;
             opacity: 0;
             transition: opacity 2s ease;
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            transform-style: preserve-3d;
+            height: 100%;
+            background: url('portal_bg.png') no-repeat center center;
+            background-size: cover;
+            box-shadow: inset 0 0 150px #000;
         }
 
-        /* --- LOGO STYLING --- */
+        /* DYNAMIC LOGO */
+        .logo-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.5);
+            transition: all 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            z-index: 300;
+            pointer-events: none;
+            display: inline-block;
+        }
+
         .main-logo {
-            max-width: 80%;
-            max-height: 80vh;
+            max-width: 80vw;
             width: auto;
-            opacity: 0;
-            transition: opacity 2s ease;
-
-            /* Green Glow matching theme */
-            filter: drop-shadow(0 0 15px rgba(0, 255, 0, 0.6)) drop-shadow(0 0 30px rgba(0, 255, 0, 0.3));
-
-            /* Glitch Animation */
-            animation: logoFloat 4s ease-in-out infinite, glitch-anim 2.5s infinite linear alternate-reverse;
+            max-height: 400px;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 0, 0.6));
         }
 
-        @keyframes logoFloat {
+        .glitch-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 1;
+            display: block;
+        }
+
+        .glitch-1 {
+            filter: drop-shadow(4px 0 0 rgba(0, 255, 255, 0.8));
+            opacity: 0.7;
+            mix-blend-mode: screen;
+            animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+        }
+
+        .glitch-2 {
+            filter: drop-shadow(-4px 0 0 rgba(255, 0, 80, 0.8));
+            opacity: 0.7;
+            mix-blend-mode: screen;
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        .logo-wrapper:not(.docked) .main-logo.base {
+            animation: glitch-flash 4s infinite;
+        }
+
+        @keyframes glitch-flash {
 
             0%,
+            95%,
+            97%,
             100% {
-                transform: translateY(0);
+                opacity: 1;
             }
 
-            50% {
-                transform: translateY(-10px);
+            96%,
+            98% {
+                opacity: 0.5;
             }
         }
 
-        @keyframes glitch-anim {
+        .logo-wrapper.docked {
+            top: -20px;
+            left: 50%;
+            transform: translate(-50%, 0) scale(0.65);
+        }
+
+        .logo-wrapper.docked .main-logo {
+            filter: drop-shadow(0 0 5px rgba(0, 255, 0, 0.4));
+        }
+
+        .logo-wrapper.docked .glitch-layer {
+            animation: none;
+            opacity: 0;
+        }
+
+        @keyframes glitch-anim-1 {
             0% {
-                clip-path: inset(40% 0 61% 0);
-                transform: translate(-2px, 2px);
+                clip-path: inset(20% 0 50% 0);
+                transform: translate(-5px, 0);
             }
 
-            20% {
-                clip-path: inset(92% 0 1% 0);
-                transform: translate(2px, -2px);
-            }
-
-            40% {
-                clip-path: inset(43% 0 1% 0);
-                transform: translate(-2px, 2px);
-            }
-
-            60% {
-                clip-path: inset(25% 0 58% 0);
-                transform: translate(2px, -2px);
-            }
-
-            80% {
-                clip-path: inset(54% 0 7% 0);
-                transform: translate(-2px, 2px);
+            5% {
+                clip-path: inset(10% 0 85% 0);
+                transform: translate(5px, 0);
             }
 
             100% {
-                clip-path: inset(58% 0 43% 0);
-                transform: translate(2px, -2px);
+                clip-path: inset(0);
             }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% {
+                clip-path: inset(0);
+            }
+
+            30% {
+                clip-path: inset(50% 0 20% 0);
+                transform: translate(5px, 0);
+            }
+
+            100% {
+                clip-path: inset(0);
+            }
+        }
+
+        /* --- LOGO WRAPPER --- */
+        .logo-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 1200px;
+            /* MASSIVE LOGO */
+            height: auto;
+            z-index: 500;
+            opacity: 0;
+            filter: drop-shadow(0 0 50px rgba(0, 255, 255, 0.4));
+            transition: all 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            display: block;
+        }
+
+        .logo-wrapper.visible {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Step 1: Shrink in Center */
+        .logo-wrapper.shrunk {
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+
+        /* Step 2: Move to Top */
+        .logo-wrapper.docked {
+            top: 1%;
+            /* Maximum height */
+            transform: translate(-50%, 0) scale(0.5);
+        }
+
+        /* --- FINAL TEXT CONTAINER --- */
+        #finalTextContainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            z-index: 600;
+            opacity: 0;
+            transition: all 1.5s ease-out;
+            pointer-events: none;
+        }
+
+        #finalTextContainer.visible {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+
+        #mainText {
+            font-family: 'VT323', monospace;
+            font-size: 8rem;
+            color: transparent;
+            /* No fill */
+            -webkit-text-stroke: 2px #ffff00;
+            /* Yellow Border */
+            text-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+            /* Glow matches border */
+            letter-spacing: 5px;
+            white-space: nowrap;
+            margin-bottom: 50px;
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            font-family: 'Rajdhani', sans-serif;
+            color: #00ffff;
+            background: rgba(0, 20, 20, 0.6);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px 60px;
+            border-radius: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-out;
+        }
+
+        .detail-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -30px;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: rgba(0, 255, 255, 0.3);
+        }
+
+        .event-details.visible .detail-item:nth-child(1) {
+            transition-delay: 0.2s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .event-details.visible .detail-item:nth-child(2) {
+            transition-delay: 0.4s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .event-details.visible .detail-item:nth-child(3) {
+            transition-delay: 0.6s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .detail-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 3px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
         }
     </style>
 </head>
@@ -374,43 +581,56 @@
 
     <div class="ui-layer">
 
-        <!-- TERMINAL LOGIN SCREEN -->
         <div id="terminalScreen">
             <div class="boot-log" id="bootLog"></div>
-
-            <!-- Tagline Centered Container -->
             <div class="tagline-container" id="taglineContainer">
                 <div id="tagline" class="tagline-text"></div>
             </div>
-
             <div class="login-container" id="loginContainer">
-                <div class="input-line">
-                    <span>USER</span>
-                    <input type="text" id="usernameInput" class="cmd-input" autocomplete="off" placeholder="IDENTIFY">
-                </div>
-                <div class="input-line">
-                    <span>PASS</span>
-                    <input type="password" id="passwordInput" class="cmd-input" autocomplete="off"
-                        placeholder="AUTHENTICATE">
-                </div>
+                <div class="input-line"><span>USER</span><input type="text" id="usernameInput" class="cmd-input"
+                        autocomplete="off" placeholder="IDENTIFY"></div>
+                <div class="input-line"><span>PASS</span><input type="password" id="passwordInput" class="cmd-input"
+                        autocomplete="off" placeholder="AUTHENTICATE"></div>
                 <button id="loginBtn" class="access-btn">ACCESS >></button>
                 <div id="errorMsg" class="error-msg">ACCESS DENIED: REDACTED</div>
             </div>
-
-            <!-- Loading Bar Container -->
             <div id="loaderContainer" class="loader-container">
                 <div id="loaderText" class="loader-text">AUTHENTICATING...</div>
                 <div class="progress-bar">
                     <div id="progressFill" class="progress-fill"></div>
                 </div>
-                <div id="loaderPercent" class="loader-text">0%</div>
+                <div id="loaderPercent" class="percent-display">0%</div>
+                <div id="systemLog" class="system-log-box"></div>
             </div>
         </div>
 
-        <!-- MAIN CONTENT (Hidden) -->
         <div id="zeusScreen" class="zeus-wrapper">
-            <!-- REPLACED TITLE WITH LOGO -->
-            <img src="logo.png" id="mainLogo" class="main-logo" alt="VISHWABHIYATHRA">
+            <div id="logoWrapper" class="logo-wrapper">
+                <img src="logo.png" class="main-logo base" alt="VISHWABHIYATHRA">
+                <!-- Glitch Layers -->
+                <img src="logo.png" class="main-logo glitch-layer glitch-1" aria-hidden="true">
+                <img src="logo.png" class="main-logo glitch-layer glitch-2" aria-hidden="true">
+            </div>
+
+            <!-- FINAL TEXT CONTAINER -->
+            <div id="finalTextContainer">
+                <div id="mainText"></div>
+
+                <div id="eventDetails" class="event-details">
+                    <div class="detail-item">
+                        <span class="detail-label">DATE</span>
+                        <span class="detail-value">2026/02/13</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">TIME</span>
+                        <span class="detail-value">12.30 P.M.</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">VENUE</span>
+                        <span class="detail-value">SCHOOL MAIN HALL</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -418,48 +638,32 @@
         // --- MATRIX RAIN SETUP ---
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
-
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-
-        // Using more "tech" looking characters
         const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const charArray = chars.split('');
         const fontSize = 14;
         const columns = canvas.width / fontSize;
         const drops = [];
-
         for (let i = 0; i < columns; i++) drops[i] = 1;
-
-        let rainColor = '#444'; // Start very dark grey
+        let rainColor = '#444';
 
         function drawMatrix() {
-            // Slower fade for trails
             ctx.fillStyle = 'rgba(2, 2, 2, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
             ctx.fillStyle = rainColor;
             ctx.font = fontSize + 'px monospace';
-
             for (let i = 0; i < drops.length; i++) {
                 const text = charArray[Math.floor(Math.random() * charArray.length)];
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
                 drops[i]++;
             }
         }
-
         setInterval(drawMatrix, 35);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
 
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        // --- TERMINAL LOGIC ---
+        // --- GAME/APP LOGIC ---
         const bootLog = document.getElementById('bootLog');
         const taglineDiv = document.getElementById('tagline');
         const loginContainer = document.getElementById('loginContainer');
@@ -469,17 +673,10 @@
         const progressFill = document.getElementById('progressFill');
         const loaderText = document.getElementById('loaderText');
         const loaderPercent = document.getElementById('loaderPercent');
+        const systemLog = document.getElementById('systemLog');
         const loginBtn = document.getElementById('loginBtn');
 
-        const bootMessages = [
-            "INITIALIZING KERNEL...",
-            "LOADING MODULES: GRAVITY_CONTROL [OK]",
-            "LOADING MODULES: NEURAL_NET [OK]",
-            "ESTABLISHING SECURE CONNECTION...",
-            "DECRYPTING ARCHIVES...",
-            "SYSTEM READY."
-        ];
-
+        const bootMessages = ["INITIALIZING KERNEL...", "LOADING MODULES: GRAVITY_CONTROL", "ESTABLISHING SECURE CONNECTION...", "SYSTEM READY."];
         let msgIndex = 0;
 
         function runBootSequence() {
@@ -487,114 +684,159 @@
                 const p = document.createElement('div');
                 p.textContent = `> ${bootMessages[msgIndex]}`;
                 bootLog.appendChild(p);
-                bootLog.scrollTop = bootLog.scrollHeight;
                 msgIndex++;
-                setTimeout(runBootSequence, 300); // Speed of logs
+                setTimeout(runBootSequence, 200);
             } else {
-                setTimeout(typeTagline, 500);
+                setTimeout(typeTagline, 300);
             }
         }
 
-        // Tagline Animation
         const taglineText = "ANCIENT IDEAS, MODERN SCIENCE, INFINITE DISCOVERY.";
         let charIndex = 0;
-
         function typeTagline() {
-            // Check if animation already finished to avoid loops
             if (taglineDiv.getAttribute('data-finished') === 'true') return;
-
             if (charIndex < taglineText.length) {
                 taglineDiv.textContent += taglineText.charAt(charIndex);
                 charIndex++;
-                setTimeout(typeTagline, 50);
+                setTimeout(typeTagline, 40);
             } else {
                 taglineDiv.setAttribute('data-finished', 'true');
                 taglineDiv.innerHTML += '<span class="blink">_</span>';
-
-                // Fade in text
                 taglineDiv.style.opacity = '1';
-
-                setTimeout(() => {
-                    loginContainer.style.display = 'flex';
-                    usernameInput.focus();
-                }, 800);
+                setTimeout(() => { loginContainer.style.display = 'flex'; usernameInput.focus(); }, 500);
             }
         }
 
-        // Login Logic
         function checkLogin() {
-            if (usernameInput.value === "123" && passwordInput.value === "123") {
+            // Case insensitive check for username
+            if (usernameInput.value.toUpperCase() === "BCSS" && passwordInput.value === "123") {
                 startLoadingSequence();
             } else {
                 document.getElementById('errorMsg').style.display = 'block';
-                // Shake effect or clear inputs
-                usernameInput.value = '';
-                passwordInput.value = '';
-                usernameInput.focus();
+                usernameInput.value = ''; passwordInput.value = ''; usernameInput.focus();
             }
         }
 
+        const techLogs = ["ALLOCATING MEMORY", "DECRYPTING SECTOR 7", "BYPASSING FIREWALL", "COMPILING SHADERS"];
+
         function startLoadingSequence() {
-            // Hide login and tagline for clean loader view
             loginContainer.style.display = 'none';
             document.getElementById('taglineContainer').style.display = 'none';
-            bootLog.style.display = 'none'; // Optional: hide logs to focus on loader
-
-            // Show Loader
+            bootLog.style.display = 'none';
             loaderContainer.style.display = 'flex';
+            systemLog.innerHTML = ""; // Clear log first
 
             let progress = 0;
             const interval = setInterval(() => {
-                progress += Math.random() * 2; // Random speed
+                progress += Math.random() * 2;
                 if (progress >= 100) progress = 100;
-
                 progressFill.style.width = `${progress}%`;
-                loaderPercent.textContent = `${Math.floor(progress)}%`;
+                loaderPercent.textContent = `LOAD: ${Math.floor(progress)}%`;
 
-                // Dynamic Status Text
-                if (progress < 30) loaderText.textContent = "VERIFYING CREDENTIALS...";
-                else if (progress < 60) loaderText.textContent = "ESTABLISHING UPLINK...";
-                else if (progress < 90) loaderText.textContent = "DECRYPTING SECURE REPOSITORY...";
-                else loaderText.textContent = "ACCESS GRANTED.";
+                // Slower log speed (0.3 chance) and stricter limit
+                if (Math.random() > 0.7) {
+                    const logLine = document.createElement('div');
+                    logLine.className = 'system-log-line';
+                    logLine.textContent = `> ${techLogs[Math.floor(Math.random() * techLogs.length)]}`;
+                    systemLog.appendChild(logLine);
+                    systemLog.scrollTop = systemLog.scrollHeight;
+                    // Limit to 8 lines to prevent overflow glitches
+                    if (systemLog.children.length > 8) {
+                        systemLog.removeChild(systemLog.firstChild);
+                    }
+                }
 
                 if (progress >= 100) {
                     clearInterval(interval);
-                    setTimeout(grantAccess, 800);
+                    setTimeout(grantAccess, 500);
                 }
-            }, 50);
+            }, 50); // Slightly slower tick
         }
 
         function grantAccess() {
-            // Success!
             document.getElementById('terminalScreen').style.display = 'none';
+            rainColor = '#005566'; // Switch rain color
 
-            // Boost Matrix Rain
-            rainColor = '#005566';
-
-            // Show Main Title
             const zeusScreen = document.getElementById('zeusScreen');
-            const mainLogo = document.getElementById('mainLogo');
+            const logoWrapper = document.getElementById('logoWrapper');
 
             zeusScreen.style.display = 'flex';
+
+            // Fade in background
             setTimeout(() => {
                 zeusScreen.style.opacity = '1';
-                mainLogo.style.opacity = '1'; // Fade in logo
+
+                // Logo Reveal
+                setTimeout(() => {
+                    logoWrapper.classList.add('visible'); // Fade in Logo
+
+                    // Step 1: Shrink in Center
+                    setTimeout(() => {
+                        logoWrapper.classList.add('shrunk');
+
+                        // Step 2: Move to Top & Reveal Text
+                        setTimeout(() => {
+                            logoWrapper.classList.add('docked');
+
+                            // Reveal Final Text Sequence
+                            setTimeout(() => {
+                                const container = document.getElementById('finalTextContainer');
+                                const mainText = document.getElementById('mainText');
+                                const details = document.getElementById('eventDetails');
+
+                                container.classList.add('visible');
+
+                                // Scramble "TOMORROW IS THE DATE"
+                                startScrambleEffect(mainText, "TOMORROW IS THE DATE");
+
+                                // Stagger details
+                                setTimeout(() => {
+                                    details.classList.add('visible');
+                                }, 1000);
+
+                            }, 1000); // Wait for logo to reach top
+
+                        }, 2000); // Wait for shrink to finish
+
+                    }, 2000); // Hold big logo for 2s
+
+                }, 100);
+
             }, 100);
         }
 
-        // Handle Enter Keys
-        usernameInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') passwordInput.focus();
-        });
+        // SCRAMBLE LOCK-IN EFFECT (Matrix Style)
+        function startScrambleEffect(element, finalString) {
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&";
+            let iterations = 0;
 
-        passwordInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') checkLogin();
-        });
+            element.textContent = "";
 
-        // Handle Button Click
+            const interval = setInterval(() => {
+                element.textContent = finalString.split("")
+                    .map((letter, index) => {
+                        // If we passed this index, return the real letter
+                        if (index < iterations) {
+                            return finalString[index];
+                        }
+                        // Otherwise return a random char
+                        return chars[Math.floor(Math.random() * chars.length)];
+                    })
+                    .join("");
+
+                // Stop when all letters are revealed
+                if (iterations >= finalString.length) {
+                    clearInterval(interval);
+                    element.textContent = finalString;
+                }
+
+                iterations += 1 / 2; // Reveal 1 char every 2 frames
+            }, 40);
+        }
+
+        usernameInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') passwordInput.focus(); });
+        passwordInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') checkLogin(); });
         loginBtn.addEventListener('click', checkLogin);
-
-        // Start everything on load
         window.onload = runBootSequence;
 
     </script>
